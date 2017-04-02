@@ -24,6 +24,7 @@ public class MainActivity extends JFrame{
 	private JMenuBar menuBar;
 	private JMenuItem mntmHome;
 	private JMenuItem mntmSignOut;
+	private JMenuItem mntmUsername;
 	private JPanel Cards;
 	
 	
@@ -57,6 +58,7 @@ public class MainActivity extends JFrame{
 		menuBar.add(mntmHome);
 		mntmSignOut = new JMenuItem("Sign Out");
 		menuBar.add(mntmSignOut);
+	
 		
 		
 		contentPane = new JPanel();
@@ -68,7 +70,7 @@ public class MainActivity extends JFrame{
 		contentPane.add(Cards, "name_2146934950434");
 		Cards.setLayout(new CardLayout(0, 0));				
 					
-		LoginActivity login = new LoginActivity(Cards);
+		LoginActivity login = new LoginActivity(Cards, menuBar);
 		login.startActivity();
 			
 		

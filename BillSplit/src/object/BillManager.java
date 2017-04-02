@@ -1,23 +1,37 @@
 package object;
 
-import java.util.*;
+import java.sql.*;
+
+import javax.swing.JOptionPane;
 
 public class BillManager extends Roommate{
 
-		
-	
-		public BillManager(){
-			super();
+		private int managerID;
+		private static BillManager sharedInstance = null;
+				
+		protected BillManager(){
+			Roommate.getInstance();
+			this.managerID = this.getID();
 		}
-	
-		public BillManager(int id, String firstName, String lastName, int groupID){
-			super(id, firstName, lastName, groupID);
-		}
-		
-		public Bill addBill(String billTitle, float billAmount, Date billDate){
+		public static BillManager getInstance(){
+			if(sharedInstance == null){
+				sharedInstance = new BillManager();
+			}
+			return sharedInstance;
+		}	
+					
+		public Bill addBill(String billTitle, String billAmount, String billDate){
+				
+			
 			Bill bill = new Bill();
-			//bill.createBill(billTitle, billAmount, billDate);
-			//bill.saveBill();
+			bill.createBill(billTitle, Float.valueOf(billAmount), Date.valueOf(billDate), managerID);
+			
+			try{
+				bill.saveBill();
+			}catch (SQLException ex){
+				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Error: Please make sure date is in form of - yyyy-[m]m-[d]d");
+			}
 			return bill;
 		}
 		public void removeBill(int newBillID){

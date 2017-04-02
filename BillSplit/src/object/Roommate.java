@@ -1,21 +1,23 @@
 package object;
 
 public class Roommate {
-
+	
 		private int id;
 		private String firstName;
 		private String lastName;
 		private int groupID;
+		private static Roommate sharedInstance = null;
 		
-		public Roommate(){
+		protected Roommate(){
 			
 		}
-		public Roommate(int id, String firstName, String lastName, int groupID){
-			this.id = id;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.groupID = groupID;
+		public static Roommate getInstance(){
+			if(sharedInstance == null){
+				sharedInstance = new Roommate();
+			}
+			return sharedInstance;
 		}
+		
 		
 		public void setID (int newID){
 			id = newID;
@@ -28,6 +30,20 @@ public class Roommate {
 		}
 		public void setGroupID(int newGroupID){
 			groupID = newGroupID;
+		}
+		
+		
+		public int getID (){
+			return id;
+		}
+		public String getFName(){
+			return firstName;
+		}
+		public String getLName(){
+			return lastName;
+		}
+		public int getGID(){
+			return groupID;
 		}
 		
 }

@@ -1,16 +1,21 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
-import object.*;
-import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import object.*;
+import java.sql.*;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.CardLayout;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,16 +29,18 @@ public class BillActivity extends JFrame {
 	private JPanel Cards;
 	private JPanel Home;
 	
+	private BillManager billManager = null;
 	
 	private JTextField txtBillname;
 	private JTextField txtTotalbillamount;
-	private JTextField txtNumroommates;
-		
+	private JTextField txtDate;
+	
 	
 public BillActivity(JPanel newCards, JPanel home){
 		
 		Cards = newCards;
 		Home = home;
+		billManager = BillManager.getInstance();
 		
 	}
 	
@@ -51,9 +58,9 @@ public BillActivity(JPanel newCards, JPanel home){
 		lblTotalBillAmount.setBounds(21, 64, 176, 26);
 		AddBill.add(lblTotalBillAmount);
 		
-		JLabel lblNumberOfRoommates = new JLabel("Number of Roommates:");
-		lblNumberOfRoommates.setBounds(21, 111, 233, 26);
-		AddBill.add(lblNumberOfRoommates);
+		JLabel lblDate = new JLabel("Date:");
+		lblDate.setBounds(21, 111, 233, 26);
+		AddBill.add(lblDate);
 		
 		txtBillname = new JTextField();
 		txtBillname.setBounds(126, 18, 186, 32);
@@ -65,10 +72,10 @@ public BillActivity(JPanel newCards, JPanel home){
 		AddBill.add(txtTotalbillamount);
 		txtTotalbillamount.setColumns(10);
 		
-		txtNumroommates = new JTextField();
-		txtNumroommates.setBounds(255, 108, 186, 32);
-		AddBill.add(txtNumroommates);
-		txtNumroommates.setColumns(10);
+		txtDate = new JTextField();
+		txtDate.setBounds(255, 108, 186, 32);
+		AddBill.add(txtDate);
+		txtDate.setColumns(10);
 		
 		JButton btnAddBill = new JButton("Add Bill");
 		btnAddBill.setBounds(181, 180, 141, 35);
@@ -77,22 +84,20 @@ public BillActivity(JPanel newCards, JPanel home){
 		btnAddBill.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				
-				Bill bill = new Bill();
-				bill.createBill(txtBillname.getText(), Float.valueOf(txtTotalbillamount.getText()), Date.valueOf(("2017-2-28") ));
-				
-				try {
-					bill.saveBill();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				if(billManager != null){
+					billManager.addBill(txtBillname.getText(), txtTotalbillamount.getText(), txtDate.getText());				
+				}				
 				AddBill.setVisible(false);
 				Home.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Your bill was successfully added!");
+				
 			}
 		});
 		AddBill.setVisible(true);
 	}
+	
+	public void setBillManager(BillManager newBillManager){
+		billManager = newBillManager;
+	}
+	
 }

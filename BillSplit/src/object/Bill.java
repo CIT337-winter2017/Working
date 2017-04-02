@@ -16,15 +16,16 @@ public class Bill {
 	public Bill(){
 		
 	}
-	public void createBill(String billTitle, float billAmount, Date billDate){
+	public void createBill(String billTitle, float billAmount, Date billDate, int billManagerID){
 		this.billTitle = billTitle;
 		this.billAmount = billAmount;
 		this.billDate = billDate;
+		this.billManagerID = billManagerID;
 	}
-	public void saveBill() throws SQLException, ClassNotFoundException{
+	public void saveBill() throws SQLException{
 		
-		/*
-		Statement stmt = null;
+		
+		PreparedStatement prepared = null;
 		String query = "";
 		try{
 			 
@@ -34,25 +35,24 @@ public class Bill {
 		    					"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 		    
 		    Connection connection = DriverManager.getConnection(conn);
-		    stmt = connection.createStatement();
-		    query = "INSERT INTO Bill (BILL_ID, BILL_DESCRIP, BILL_DUE_DATE, BILL_AMOUNT, BILL_OWNER)" +
-							"VALUES (?, ?, ?, ?, ?)";
-		    PreparedStatement prepared = connection.prepareStatement(query);
-		    prepared.setInt(1, billID);
-		    prepared.setString(2, billTitle);
-		    prepared.setDate(3, billDate);
-		    prepared.setFloat(4, billAmount);
-		    prepared.setInt(5, billManagerID);
+		   
+		    query = "INSERT INTO Bills (BILL_NAME, BILL_DUE_DATE, BILL_AMOUNT, BILL_OWNER_ID)" +
+							"VALUES (?, ?, ?, ?)";
+		    prepared = connection.prepareStatement(query);		
+		    prepared.setString(1, billTitle);
+		    prepared.setDate(2, billDate);
+		    prepared.setFloat(3, billAmount);
+		    prepared.setInt(4, billManagerID);
 		    prepared.execute();
 		}catch(SQLException ex){
 			ex.printStackTrace();
 		}finally{
-			if(stmt != null){
-				stmt.close();
+			if(prepared != null){
+				prepared.close();
 			}
 			
 		}
-		*/
+		
 	}
 	
 }
