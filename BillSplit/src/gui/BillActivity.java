@@ -68,12 +68,12 @@ public BillActivity(JPanel newCards, JPanel home){
 		txtBillname.setColumns(10);
 		
 		txtTotalbillamount = new JTextField();
-		txtTotalbillamount.setBounds(197, 61, 186, 32);
+		txtTotalbillamount.setBounds(126, 61, 186, 32);
 		AddBill.add(txtTotalbillamount);
 		txtTotalbillamount.setColumns(10);
 		
 		txtDate = new JTextField();
-		txtDate.setBounds(255, 108, 186, 32);
+		txtDate.setBounds(126, 108, 186, 32);
 		AddBill.add(txtDate);
 		txtDate.setColumns(10);
 		
