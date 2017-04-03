@@ -34,9 +34,11 @@ public class RegisterActivity extends JFrame {
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private JTextField txtUsername;
-	private JTextField txtPassword;
-	private JTextField txtConfirmPass;
+	private JPasswordField pwdPassword;
+	private JPasswordField pwdConfirmPass;
 	private JMenuItem mntmUsername;
+	private JLabel lblPassword;
+	private JLabel lblConfirmPass;
 
 	private JMenuBar menuBar;
 	
@@ -71,20 +73,29 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		SignUp.add(txtUsername);
 		txtUsername.setColumns(10);
 		
-		//change to password box
 		//add password validation
-		txtPassword = new JTextField();
-		txtPassword.setText("Password");
-		txtPassword.setBounds(155, 136, 186, 32);
-		SignUp.add(txtPassword);
-		txtPassword.setColumns(10);
-		//change to password box
+		pwdPassword = new JPasswordField();
+		pwdPassword.setText("Password");
+		pwdPassword.setBounds(155, 136, 186, 32);
+		SignUp.add(pwdPassword);
+		pwdPassword.setColumns(10);
+		
+		lblPassword = new JLabel();
+		lblPassword.setText("Enter Password:");
+		lblPassword.setBounds(40,136,176,26);
+		SignUp.add(lblPassword);
+		
 		//add password validation
-		txtConfirmPass= new JTextField();
-		txtConfirmPass.setText("Confirm Password");
-		txtConfirmPass.setBounds(155, 175, 186, 32);
-		SignUp.add(txtConfirmPass);
-		txtConfirmPass.setColumns(10);
+		pwdConfirmPass= new JPasswordField();
+		pwdConfirmPass.setText("Password");
+		pwdConfirmPass.setBounds(155, 175, 186, 32);
+		SignUp.add(pwdConfirmPass);
+		pwdConfirmPass.setColumns(10);
+		
+		lblConfirmPass = new JLabel();
+		lblConfirmPass.setText("Confirm Password:");
+		lblConfirmPass.setBounds(40,175,176,26);
+		SignUp.add(lblConfirmPass);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(155, 189, 186, 35);
