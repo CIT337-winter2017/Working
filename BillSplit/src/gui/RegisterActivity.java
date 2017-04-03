@@ -35,6 +35,7 @@ public class RegisterActivity extends JFrame {
 	private JTextField txtLastName;
 	private JTextField txtUsername;
 	private JTextField txtPassword;
+	private JTextField txtConfirmPass;
 	private JMenuItem mntmUsername;
 
 	private JMenuBar menuBar;
@@ -70,11 +71,20 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		SignUp.add(txtUsername);
 		txtUsername.setColumns(10);
 		
+		//change to password box
+		//add password validation
 		txtPassword = new JTextField();
 		txtPassword.setText("Password");
 		txtPassword.setBounds(155, 136, 186, 32);
 		SignUp.add(txtPassword);
 		txtPassword.setColumns(10);
+		//change to password box
+		//add password validation
+		txtConfirmPass= new JTextField();
+		txtConfirmPass.setText("Confirm Password");
+		txtConfirmPass.setBounds(155, 175, 186, 32);
+		SignUp.add(txtConfirmPass);
+		txtConfirmPass.setColumns(10);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(155, 189, 186, 35);
