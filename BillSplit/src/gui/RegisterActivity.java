@@ -37,6 +37,9 @@ public class RegisterActivity extends JFrame {
 	private JPasswordField pwdPassword;
 	private JPasswordField pwdConfirmPass;
 	private JMenuItem mntmUsername;
+	private JLabel lblFirstName;
+	private JLabel lblLastName;
+	private JLabel lblUsername;
 	private JLabel lblPassword;
 	private JLabel lblConfirmPass;
 
@@ -55,27 +58,42 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		Cards.add(SignUp, "name_2175269678062");
 		SignUp.setLayout(null);
 		
+				//first name textbox
 		txtFirstName = new JTextField();
-		txtFirstName.setText("First Name");
 		txtFirstName.setBounds(155, 21, 186, 32);
 		SignUp.add(txtFirstName);
 		txtFirstName.setColumns(10);
+		//first name label
+		lblFirstName = new JLabel();
+		lblFirstName.setText("Enter First Name:");
+		lblFirstName.setBounds(40,21,176,26);
+		SignUp.add(lblFirstName);
 		
+		//last name textbox
 		txtLastName = new JTextField();
-		txtLastName.setText("Last Name");
 		txtLastName.setBounds(155, 60, 186, 32);
 		SignUp.add(txtLastName);
 		txtLastName.setColumns(10);
 		
+		//last name label
+		lblLastName = new JLabel();
+		lblLastName.setText("Enter Last Name:");
+		lblLastName.setBounds(40,60,176,26);
+		SignUp.add(lblLastName);
+		
+		//username textbob
 		txtUsername = new JTextField();
-		txtUsername.setText("Username");
 		txtUsername.setBounds(155, 98, 186, 32);
 		SignUp.add(txtUsername);
 		txtUsername.setColumns(10);
+		//username label
+		lblUsername = new JLabel();
+		lblUsername.setText("Enter Username:");
+		lblUsername.setBounds(40,98,176,26);
+		SignUp.add(lblUsername);
 		
 		//add password validation
 		pwdPassword = new JPasswordField();
-		pwdPassword.setText("Password");
 		pwdPassword.setBounds(155, 136, 186, 32);
 		SignUp.add(pwdPassword);
 		pwdPassword.setColumns(10);
@@ -87,7 +105,6 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		
 		//add password validation
 		pwdConfirmPass= new JPasswordField();
-		pwdConfirmPass.setText("Password");
 		pwdConfirmPass.setBounds(155, 175, 186, 32);
 		SignUp.add(pwdConfirmPass);
 		pwdConfirmPass.setColumns(10);
