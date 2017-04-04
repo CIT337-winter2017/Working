@@ -34,6 +34,19 @@ public CalendarActivity(JPanel newCards){
 		Cards.add(Calendar, "name_2614559085932");
 		Calendar.setLayout(null);
 		Calendar.setVisible(true);
+		
+		//date chooser
+		bills = new JDateChooser();
+		bills.setBounds(193, 21, 147, 32);
+		Calendar.add(bills);
+		//select date label
+		JLabel lblSelectADate = new JLabel("Select A Date:");
+		lblSelectADate.setBounds(45, 21, 195, 26);
+		Calendar.add(lblSelectADate);
+		//date submit button
+		btnSubmitDate = new JButton("Submit Date");
+		btnSubmitDate.setBounds(355, 18, 152, 35);
+		Calendar.add(btnSubmitDate);
 	}
 	
 	
