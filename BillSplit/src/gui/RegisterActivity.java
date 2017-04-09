@@ -140,6 +140,11 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		SignUp.setVisible(true);
 	}
 	public boolean registerUser() throws SQLException{
+		//gets passwords as char array and converst to string
+		char [] pass = pwdPassword.getPassword();
+		String passString = new String(pass);
+		char [] confirmPass = pwdConfirmPass.getPassword();
+		String confirmPassString = new String(confirmPass);
 		PreparedStatement prepared = null;
 		String query = "";
 		try{
@@ -156,7 +161,7 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		    prepared = connection.prepareStatement(query);	
 		   
 		    prepared.setString(1, txtUsername.getText());
-		    prepared.setString(2, txtPassword.getText());
+		    prepared.setString(2, passString);
 		    prepared.setString(3, txtFirstName.getText());
 		    prepared.setString(4, txtLastName.getText());
 		    prepared.setInt(5, 0);
