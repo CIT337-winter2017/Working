@@ -28,38 +28,32 @@ public GroupActivity(JPanel newCards){
 	}
 	
 	public void startActivity(){
-	  private JPanel Group;
-	  private JTextField txtEnterGroupName;
-	  private JTextField txtCreateNewGroup;
-	  private JButton btnJoinGroup;
-	  private JButton btnCreateGroup;
-	  private JTable tblCurrentBills;
+	
 		
-    		Group = new JPanel();
+	  	JPanel Group = new JPanel();
 		Cards.add(Group, "name_3024945128167");
 		Group.setLayout(null);
 		
-		txtEnterGroupName = new JTextField();
+		JTextField txtEnterGroupName = new JTextField();
 		txtEnterGroupName.setText("Enter Group Name");
 		txtEnterGroupName.setBounds(21, 124, 186, 32);
 		Group.add(txtEnterGroupName);
 		txtEnterGroupName.setColumns(10);
 		
-		btnJoinGroup = new JButton("Join Group");
+		JButton btnJoinGroup = new JButton("Join Group");
 		btnJoinGroup.setBounds(228, 123, 141, 35);
 		Group.add(btnJoinGroup);
 		
-		txtCreateNewGroup = new JTextField();
+		JTextField txtCreateNewGroup = new JTextField();
 		txtCreateNewGroup.setText("Create New Group");
 		txtCreateNewGroup.setBounds(21, 54, 186, 32);
 		Group.add(txtCreateNewGroup);
 		txtCreateNewGroup.setColumns(10);
 		
-		btnCreateGroup = new JButton("Create Group");
+		JButton btnCreateGroup = new JButton("Create Group");
 		btnCreateGroup.setBounds(228, 53, 167, 35);
 		Group.add(btnCreateGroup);
 		
 		Group.setVisible(true);
 	}
 }
-
