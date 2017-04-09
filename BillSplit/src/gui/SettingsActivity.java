@@ -37,6 +37,15 @@ public SettingsActivity(JPanel newCards){
 		btnManageGroups.setBounds(160, 32, 195, 35);
 		Settings.add(btnManageGroups);
 		
+		btnManageGroups.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				Settings.setVisible(false);
+				GroupActivity Group = new GroupActivity(Cards);
+				Group.startActivity();
+				
+			}
+		});
+		
 		JButton btnUpdateInfo = new JButton("Update Info");
 		btnUpdateInfo.setBounds(160, 93, 195, 35);
 		Settings.add(btnUpdateInfo);

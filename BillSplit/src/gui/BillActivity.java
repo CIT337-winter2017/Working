@@ -33,8 +33,8 @@ public class BillActivity extends JFrame {
 	
 	private JTextField txtBillname;
 	private JTextField txtTotalbillamount;
-	private JTextField txtDate;
-	
+	//private JTextField txtDate;
+	private JDateChooser dateChooser;
 	
 public BillActivity(JPanel newCards, JPanel home){
 		
@@ -62,6 +62,11 @@ public BillActivity(JPanel newCards, JPanel home){
 		lblDate.setBounds(21, 111, 233, 26);
 		AddBill.add(lblDate);
 		
+		//date selection
+		dateChooser = new JDateChooser();
+		dateChooser.setBounds(126, 108, 186, 32);
+		AddBill.add(dateChooser);
+		
 		txtBillname = new JTextField();
 		txtBillname.setBounds(126, 18, 186, 32);
 		AddBill.add(txtBillname);
@@ -72,10 +77,10 @@ public BillActivity(JPanel newCards, JPanel home){
 		AddBill.add(txtTotalbillamount);
 		txtTotalbillamount.setColumns(10);
 		
-		txtDate = new JTextField();
-		txtDate.setBounds(126, 108, 186, 32);
-		AddBill.add(txtDate);
-		txtDate.setColumns(10);
+		//txtDate = new JTextField();
+		//txtDate.setBounds(126, 108, 186, 32);
+		//AddBill.add(txtDate);
+		//txtDate.setColumns(10);
 		
 		JButton btnAddBill = new JButton("Add Bill");
 		btnAddBill.setBounds(181, 180, 141, 35);
@@ -85,7 +90,7 @@ public BillActivity(JPanel newCards, JPanel home){
 			public void actionPerformed(ActionEvent arg0){
 				
 				if(billManager != null){
-					billManager.addBill(txtBillname.getText(), txtTotalbillamount.getText(), txtDate.getText());				
+					billManager.addBill(txtBillname.getText(), txtTotalbillamount.getText(), dateChooser.getDateFormatString());				
 				}				
 				AddBill.setVisible(false);
 				Home.setVisible(true);
