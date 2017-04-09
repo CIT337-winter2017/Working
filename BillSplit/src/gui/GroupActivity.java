@@ -21,7 +21,7 @@ public class GroupActivity extends JFrame{
 	private JPanel Cards;
 	
 	
-public SettingsActivity(JPanel newCards){
+public GroupActivity(JPanel newCards){
 		
 		Cards = newCards;
 		
@@ -35,7 +35,7 @@ public SettingsActivity(JPanel newCards){
 	  private JButton btnCreateGroup;
 	  private JTable tblCurrentBills;
 		
-    Group = new JPanel();
+    		Group = new JPanel();
 		Cards.add(Group, "name_3024945128167");
 		Group.setLayout(null);
 		
@@ -58,6 +58,8 @@ public SettingsActivity(JPanel newCards){
 		btnCreateGroup = new JButton("Create Group");
 		btnCreateGroup.setBounds(228, 53, 167, 35);
 		Group.add(btnCreateGroup);
+		
+		Group.setVisible(true);
 	}
 }
 
