@@ -128,8 +128,8 @@ public class LoginActivity extends JFrame{
 		    String user = "root";
 		    String pw = "6425";
 		    
-		    //Connection connection = DriverManager.getConnection(conn);
-		    Connection connection = DriverManager.getConnection(url, user, pw);
+		    Connection connection = DriverManager.getConnection(conn);
+		    //Connection connection = DriverManager.getConnection(url, user, pw);
 		    SQLConnection sqlconn = SQLConnection.getInstance();
 		    sqlconn.setConn(connection);
 		   
