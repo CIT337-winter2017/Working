@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import object.Roommate;
+import other.SQLConnection;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -33,6 +34,8 @@ public class LoginActivity extends JFrame{
 	private JPanel Login;
 	private JTextField txtUsername;
 	private JPasswordField pwdPassword;
+	private JLabel lblUsername;
+	private JLabel lblPassword;
 	private JMenuBar menuBar;
 	private JMenuItem mntmUsername;
 	
@@ -50,16 +53,26 @@ public class LoginActivity extends JFrame{
 		Cards.add(Login, "name_2140769625460");
 		Login.setLayout(null);
 		
+		//username textbox
 		txtUsername = new JTextField();
 		txtUsername.setBounds(157, 53, 186, 32);
 		Login.add(txtUsername);
-		txtUsername.setText("Username");
 		txtUsername.setColumns(10);
+		//username label
+		lblUsername = new JLabel();
+		lblUsername.setBounds(40,53,176,26);
+		lblUsername.setText("Enter Username:");
+		Login.add(lblUsername);
 		
+		//password textbox
 		pwdPassword = new JPasswordField();
 		pwdPassword.setBounds(157, 96, 186, 32);
 		Login.add(pwdPassword);
-		pwdPassword.setText("Password");
+		//password label
+		lblPassword = new JLabel();
+		lblPassword.setBounds(40,96,176,26);
+		lblPassword.setText("Enter Password:");
+		Login.add(lblPassword);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(157, 139, 186, 35);
@@ -111,7 +124,14 @@ public class LoginActivity extends JFrame{
 		    					"encrypt=true;trustServerCertificate=false;" +
 		    					"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 		    
+		    String url = "jdbc:mysql://localhost:3306/cse337?useSSL=false";
+		    String user = "root";
+		    String pw = "6425";
+		    
 		    Connection connection = DriverManager.getConnection(conn);
+		    //Connection connection = DriverManager.getConnection(url, user, pw);
+		    SQLConnection sqlconn = SQLConnection.getInstance();
+		    sqlconn.setConn(connection);
 		   
 		    query = "SELECT * FROM Users WHERE USER_USERNAME=? AND USER_PASSWORD=?";
 		    prepared = connection.prepareStatement(query);		
