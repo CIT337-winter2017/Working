@@ -21,18 +21,18 @@ import javax.swing.SwingConstants;
 
 
 public class CalendarActivity extends JFrame {
-	
+	//Nicole
 	private JPanel Cards;
 	private JPanel Calendar;
 		
 	
 public CalendarActivity(JPanel newCards){
-		
+		//Nicole
 		Cards = newCards;
 	}
 	
 	public void startActivity(){
-		
+		//Nicole
 		Calendar = new JPanel();
 		Cards.add(Calendar, "name_2614559085932");
 		Calendar.setLayout(null);
