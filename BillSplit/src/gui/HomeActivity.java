@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 
 public class HomeActivity extends JFrame {
 	
-	
+	//Nicole
 	private JPanel Cards;
 	
 	private JPanel Home;
@@ -31,7 +31,7 @@ public class HomeActivity extends JFrame {
 	
 
 	public HomeActivity(JPanel newCards){
-		
+		//Nicole
 		Cards = newCards;
 	}
 	
@@ -39,7 +39,7 @@ public class HomeActivity extends JFrame {
 		
 		
 	
-		
+		//Nicole
 		Home = new JPanel();
 		Cards.add(Home, "name_2393664671946");
 		Home.setLayout(null);
