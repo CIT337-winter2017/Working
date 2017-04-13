@@ -29,7 +29,7 @@ import java.sql.*;
 
 public class RegisterActivity extends JFrame {
 	
-	
+	//Nicole
 	private JPanel Cards;
 	
 	private JTextField txtFirstName;
@@ -47,14 +47,14 @@ public class RegisterActivity extends JFrame {
 	private JMenuBar menuBar;
 	
 public RegisterActivity(JPanel newCards, JMenuBar menuBar){
-		
+		//Nicole
 		Cards = newCards;
 		this.menuBar = menuBar;
 		
 	}
 	
 	public void startActivity(){
-		
+		//Nicole
 		JPanel SignUp = new JPanel();
 		Cards.add(SignUp, "name_2175269678062");
 		SignUp.setLayout(null);
@@ -141,11 +141,13 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		SignUp.setVisible(true);
 	}
 	public boolean registerUser() throws SQLException{
+		//Nicole
 		//gets passwords as char array and converst to string
 		char [] pass = pwdPassword.getPassword();
 		String passString = new String(pass);
 		char [] confirmPass = pwdConfirmPass.getPassword();
 		String confirmPassString = new String(confirmPass);
+		//
 		PreparedStatement prepared = null;
 		String query = "";
 		try{
