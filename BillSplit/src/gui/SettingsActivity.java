@@ -17,18 +17,18 @@ import javax.swing.SwingConstants;
 
 public class SettingsActivity extends JFrame{
 	
-	
+	//Nicole
 	private JPanel Cards;
 	
 	
 public SettingsActivity(JPanel newCards){
-		
+		//Nicole
 		Cards = newCards;
 		
 	}
 	
 	public void startActivity(){
-		
+		//Nicole
 		JPanel Settings = new JPanel();
 		Cards.add(Settings, "name_2866472175132");
 		Settings.setLayout(null);
