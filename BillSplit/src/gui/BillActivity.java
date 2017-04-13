@@ -28,7 +28,7 @@ import javax.swing.SwingConstants;
 
 
 public class BillActivity extends JFrame {
-	
+	//Nicole
 	private JPanel Cards;
 	private JPanel Home;
 	
@@ -42,7 +42,7 @@ public class BillActivity extends JFrame {
 	private String formatted;
 	
 public BillActivity(JPanel newCards, JPanel home){
-		
+		//Nicole
 		Cards = newCards;
 		Home = home;
 		billManager = BillManager.getInstance();
@@ -50,7 +50,7 @@ public BillActivity(JPanel newCards, JPanel home){
 	}
 	
 	public void startActivity(){
-		
+		//Nicole
 		JPanel AddBill = new JPanel();
 		Cards.add(AddBill, "name_2684231063061");
 		AddBill.setLayout(null);
@@ -105,7 +105,7 @@ public BillActivity(JPanel newCards, JPanel home){
 		});
 		AddBill.setVisible(true);
 	}
-	
+	//Austin
 	public void setBillManager(BillManager newBillManager){
 		billManager = newBillManager;
 	}
