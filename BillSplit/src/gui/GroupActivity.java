@@ -27,7 +27,7 @@ import javax.swing.SwingConstants;
 
 public class GroupActivity extends JFrame{
 	
-	
+	//Nicole
 	private JPanel Cards;
 	private JTextField txtCreateNewGroup;
 	private JTextField txtEnterGroupName;
@@ -36,14 +36,14 @@ public class GroupActivity extends JFrame{
 	
 	
 public GroupActivity(JPanel newCards){
-		
+		//Nicole
 		Cards = newCards;
 		
 	}
 	
 	public void startActivity(){
 	
-		
+		//Nicole
 	  	JPanel Group = new JPanel();
 		Cards.add(Group, "name_3024945128167");
 		Group.setLayout(null);
