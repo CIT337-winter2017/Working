@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import object.Roommate;
+import other.SQLConnection;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -123,7 +124,14 @@ public class LoginActivity extends JFrame{
 		    					"encrypt=true;trustServerCertificate=false;" +
 		    					"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 		    
-		    Connection connection = DriverManager.getConnection(conn);
+		    String url = "jdbc:mysql://localhost:3306/cse337?useSSL=false";
+		    String user = "root";
+		    String pw = "6425";
+		    
+		    //Connection connection = DriverManager.getConnection(conn);
+		    Connection connection = DriverManager.getConnection(url, user, pw);
+		    SQLConnection sqlconn = SQLConnection.getInstance();
+		    sqlconn.setConn(connection);
 		   
 		    query = "SELECT * FROM Users WHERE USER_USERNAME=? AND USER_PASSWORD=?";
 		    prepared = connection.prepareStatement(query);		

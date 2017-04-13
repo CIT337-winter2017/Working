@@ -3,6 +3,9 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.CardLayout;
@@ -36,7 +39,7 @@ public CalendarActivity(JPanel newCards){
 		Calendar.setVisible(true);
 		
 		//date chooser
-		bills = new JDateChooser();
+		JDateChooser bills = new JDateChooser();
 		bills.setBounds(193, 21, 147, 32);
 		Calendar.add(bills);
 		//select date label
@@ -44,7 +47,7 @@ public CalendarActivity(JPanel newCards){
 		lblSelectADate.setBounds(45, 21, 195, 26);
 		Calendar.add(lblSelectADate);
 		//date submit button
-		btnSubmitDate = new JButton("Submit Date");
+		JButton btnSubmitDate = new JButton("Submit Date");
 		btnSubmitDate.setBounds(355, 18, 152, 35);
 		Calendar.add(btnSubmitDate);
 	}

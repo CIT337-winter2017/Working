@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import object.Roommate;
+import other.SQLConnection;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -149,12 +150,7 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		String query = "";
 		try{
 			 
-		    String conn = "jdbc:sqlserver://cit337.database.windows.net:1433;" +
-		    					"database=CSE337;user=afdanaj@cit337;password=Temp12345;"+
-		    					"encrypt=true;trustServerCertificate=false;" +
-		    					"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-		    
-		    Connection connection = DriverManager.getConnection(conn);
+			Connection connection = SQLConnection.getInstance().getConn();
 		   
 		    query = "INSERT INTO Users (USER_USERNAME, USER_PASSWORD, USER_FNAME, USER_LASTNAME, USER_GROUP_ID)" +
 							"VALUES (?, ?, ?, ?, ?)";

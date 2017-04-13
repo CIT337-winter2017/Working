@@ -4,6 +4,8 @@ package object;
 import java.sql.*;
 import com.microsoft.sqlserver.jdbc.*;
 
+import other.SQLConnection;
+
 
 public class Bill {
 
@@ -29,12 +31,7 @@ public class Bill {
 		String query = "";
 		try{
 			 
-		    String conn = "jdbc:sqlserver://cit337.database.windows.net:1433;" +
-		    					"database=CSE337;user=afdanaj@cit337;password=Temp12345;"+
-		    					"encrypt=true;trustServerCertificate=false;" +
-		    					"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-		    
-		    Connection connection = DriverManager.getConnection(conn);
+			Connection connection = SQLConnection.getInstance().getConn();
 		   
 		    query = "INSERT INTO Bills (BILL_NAME, BILL_DUE_DATE, BILL_AMOUNT, BILL_OWNER_ID)" +
 							"VALUES (?, ?, ?, ?)";

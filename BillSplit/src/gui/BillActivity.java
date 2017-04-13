@@ -7,8 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.toedter.calendar.JDateChooser;
+
 import object.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -35,6 +38,8 @@ public class BillActivity extends JFrame {
 	private JTextField txtTotalbillamount;
 	//private JTextField txtDate;
 	private JDateChooser dateChooser;
+	private SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+	private String formatted;
 	
 public BillActivity(JPanel newCards, JPanel home){
 		
@@ -88,9 +93,9 @@ public BillActivity(JPanel newCards, JPanel home){
 		
 		btnAddBill.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				
+				formatted = format1.format(dateChooser.getDate());
 				if(billManager != null){
-					billManager.addBill(txtBillname.getText(), txtTotalbillamount.getText(), dateChooser.getDateFormatString());				
+					billManager.addBill(txtBillname.getText(), txtTotalbillamount.getText(), formatted);				
 				}				
 				AddBill.setVisible(false);
 				Home.setVisible(true);
