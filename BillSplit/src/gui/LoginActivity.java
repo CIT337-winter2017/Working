@@ -29,7 +29,7 @@ import java.sql.*;
 public class LoginActivity extends JFrame{
 
 	
-	
+	//Nicole
 	private JPanel Cards;
 	private JPanel Login;
 	private JTextField txtUsername;
@@ -48,7 +48,7 @@ public class LoginActivity extends JFrame{
 	}
 	
 	public void startActivity(){
-		
+		//Nicole
 		Login = new JPanel();
 		Cards.add(Login, "name_2140769625460");
 		Login.setLayout(null);
