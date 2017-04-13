@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 
 
 public class MainActivity extends JFrame{
-
+	//Nicole
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenuItem mntmHome;
@@ -48,6 +48,7 @@ public class MainActivity extends JFrame{
 	}
 	
 	public void startActivity(){
+		//Nicole
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 564, 400);
 		
