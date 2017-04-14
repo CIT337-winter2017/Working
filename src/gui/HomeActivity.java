@@ -29,6 +29,8 @@ public class HomeActivity extends JFrame {
 	private JLabel lblBillsplit;
 	private JButton btnCalendar;
 	private JButton btnAddBill;
+	private JButton btnView;
+	
 	private JButton btnSettings;
 	private JMenuBar menuBar;
 	private JMenuItem mntmHome;
@@ -91,9 +93,22 @@ public class HomeActivity extends JFrame {
 		btnAddBill.setBounds(191, 112, 141, 35);
 		Home.add(btnAddBill);
 		
+		btnView = new JButton("View Bills");
+		btnView.setBounds(191, 154, 141, 35);
+		Home.add(btnView);
+		
 		btnSettings = new JButton("Settings");
-		btnSettings.setBounds(191, 154, 141, 35);
+		btnSettings.setBounds(191, 186, 141, 35);
 		Home.add(btnSettings);
+		
+		btnView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				ViewBillActivity view = new ViewBillActivity(Cards, layout);
+				view.startActivity();
+			
+			}
+		});
 		
 		btnCalendar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

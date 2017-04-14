@@ -44,9 +44,9 @@ public class ViewBillActivity {
 public void startActivity(){
 	
 	JPanel ViewBill = new JPanel();
-	Cards.add(ViewBill, "name_3684231069285");
+	Cards.add(ViewBill, "view");
 	ViewBill.setLayout(new BorderLayout());
-	ViewBill.setVisible(true);
+	
 	PreparedStatement prepared = null;
 	String[] ColumNames={"Bill Name","Bill Due Date","Bill Amount"};
 	DefaultTableModel model = new DefaultTableModel(ColumNames,0);
@@ -59,14 +59,14 @@ public void startActivity(){
 			"database=CSE337;user=afdanaj@cit337;password=Temp12345;"+
 			"encrypt=true;trustServerCertificate=false;" +
 			"hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-
+   layout.show(Cards, "view");
 try {
 	String query="SELECT * FROM Bills WHERE BILL_OWNER_ID = ?";
 	Connection connection = DriverManager.getConnection(conn);
 	//Statement stmt = connection.createStatement();
 	
    
-    Object[] rowData={};
+    Object[] rowData = new Object[3];
 
     //rs = stmt.executeQuery("SELECT (BILL_ID,BILL_NAME, BILL_DUE_DATE, BILL_AMOUNT, BILL_OWNER_ID) FROM dbo.Bills");
     
@@ -93,6 +93,7 @@ try {
 	     JScrollPane scrollPane = new JScrollPane(jtable);
 	     jtable.setFillsViewportHeight(true);
 		ViewBill.add(scrollPane, BorderLayout.CENTER);
+		
 
 } catch (SQLException e) {
 	// TODO Auto-generated catch block
