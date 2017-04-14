@@ -90,6 +90,7 @@ public class LoginActivity extends JFrame{
 				
 				Login.setVisible(false);
 				try{
+					
 					if(checkLogin()){
 						HomeActivity home = HomeActivity.getInstance();
 						home.setLayout(layout);
@@ -120,7 +121,9 @@ public class LoginActivity extends JFrame{
 	public boolean checkLogin() throws SQLException{
 		String username = txtUsername.getText();
 		String password = pwdPassword.getText();
-		
+		if(username.equals("") || password.equals("")){
+			return false;
+		}
 		PreparedStatement prepared = null;
 		String query = "";
 		try{
@@ -152,7 +155,7 @@ public class LoginActivity extends JFrame{
 		    	roommate.setFirstName(rs.getString("USER_FNAME"));
 		    	roommate.setLastName(rs.getString("USER_LASTNAME"));
 		    	roommate.setGroupID(rs.getInt("USER_GROUP_ID"));
-		    	username = (rs.getString("USER_FNAME") + " " + rs.getString("USER_LASTNAME"));
+		    	this.username = (rs.getString("USER_FNAME") + " " + rs.getString("USER_LASTNAME"));
 			
 		    }
 		    if( count == 0){
