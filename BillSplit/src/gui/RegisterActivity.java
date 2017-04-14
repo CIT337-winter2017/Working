@@ -116,7 +116,7 @@ public RegisterActivity(JPanel newCards, JMenuBar menuBar){
 		SignUp.add(lblConfirmPass);
 		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(155, 189, 186, 35);
+		btnSubmit.setBounds(155, 215, 186, 35);
 		SignUp.add(btnSubmit);
 		
 		btnSubmit.addActionListener(new ActionListener() {
