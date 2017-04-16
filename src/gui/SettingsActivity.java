@@ -37,11 +37,11 @@ public SettingsActivity(JPanel newCards, CardLayout newLayout){
 		btnManageGroups.setBounds(160, 32, 195, 35);//Nicole
 		Settings.add(btnManageGroups);//Nicole
 		
-		btnManageGroups.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+		btnManageGroups.addActionListener(new ActionListener(){//Nicole
+			public void actionPerformed(ActionEvent e){//Nicole
 				
-				GroupActivity Group = new GroupActivity(Cards, layout);
-				Group.startActivity();
+				GroupActivity Group = new GroupActivity(Cards, layout);//Nicole
+				Group.startActivity();//Nicole
 				
 			}
 		});
