@@ -94,11 +94,11 @@ public class HomeActivity extends JFrame {
 		Home.add(btnAddBill);
 		
 		btnView = new JButton("View Bills");
-		btnView.setBounds(191, 154, 141, 35);
+		btnView.setBounds(191, 155, 141, 35);
 		Home.add(btnView);
 		
 		btnSettings = new JButton("Settings");
-		btnSettings.setBounds(191, 186, 141, 35);
+		btnSettings.setBounds(191, 198, 141, 35);
 		Home.add(btnSettings);
 		
 		btnView.addActionListener(new ActionListener() {

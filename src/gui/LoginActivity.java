@@ -105,6 +105,10 @@ public class LoginActivity extends JFrame{
 					JOptionPane.showMessageDialog(null, e.toString());
 				}
 				
+				//Nicole
+				txtUsername.setText("");
+				pwdPassword.setText("");
+				
 				
 			}
 		});

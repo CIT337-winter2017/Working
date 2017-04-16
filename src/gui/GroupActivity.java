@@ -92,6 +92,7 @@ public GroupActivity(JPanel newCards, CardLayout newLayout){
 				try{
 					if(createGroup()){
 						//Group.setVisible(false);
+						updateRoommate();
 						JOptionPane.showMessageDialog(null, "Group created!");
 					}else{
 						JOptionPane.showMessageDialog(null, "Fatal Error.");
@@ -110,11 +111,15 @@ public GroupActivity(JPanel newCards, CardLayout newLayout){
 			public void actionPerformed(ActionEvent e) {
 				
 				try{
-					if(joinGroup()){
-						//Group.setVisible(false);
-						JOptionPane.showMessageDialog(null, "Group joined!");
+					if(roommate.getGID() == 0){
+						if(joinGroup()){
+							//Group.setVisible(false);
+							JOptionPane.showMessageDialog(null, "Group joined!");
+						}else{
+							JOptionPane.showMessageDialog(null, "Fatal Error.");
+						}
 					}else{
-						JOptionPane.showMessageDialog(null, "Fatal Error.");
+						JOptionPane.showMessageDialog(null, "You are already in a group!");
 					}
 					
 				}
@@ -147,6 +152,46 @@ public GroupActivity(JPanel newCards, CardLayout newLayout){
 		});
 		
 	}
+	//Begin Austin
+	public void updateRoommate() throws SQLException{
+		PreparedStatement prepared = null;
+		String query = "";
+		
+		try{
+			 
+			Connection connection = SQLConnection.getInstance().getConn();
+		    
+		    query = "SELECT * FROM Groups WHERE GROUPS_OWNER_ID=?";
+		    prepared = connection.prepareStatement(query);	
+		    prepared.setInt(1, roommate.getID());
+		    ResultSet rs = prepared.executeQuery();
+		    rs.next();
+		    int groupID = rs.getInt("GROUPS_ID");
+		    roommate.setGroupID(groupID);
+		    group.setID(groupID);
+		    group.setName(rs.getString("GROUPS_NAME"));
+		    group.setOwnerID(rs.getInt("GROUPS_OWNER_ID"));
+		    lblGroupName.setText(rs.getString("GROUPS_NAME"));
+		    prepared.close();
+		    
+		    query = "UPDATE Users SET USER_GROUP_ID=? WHERE USER_ID=?;";
+		    prepared = connection.prepareStatement(query);
+		    prepared.setInt(1, roommate.getGID());
+		    prepared.setInt(2, roommate.getID());
+		    prepared.execute();
+		    
+
+		    //return true;
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		//	return false;
+		}finally{
+			if(prepared != null){
+				prepared.close();
+			}
+			
+		}
+	} //end Austin
 	public boolean createGroup() throws SQLException{
 	PreparedStatement prepared = null;
 	String query = "";
@@ -155,13 +200,13 @@ public GroupActivity(JPanel newCards, CardLayout newLayout){
 		 
 		Connection connection = SQLConnection.getInstance().getConn();
 	   
-	    query = "INSERT INTO Groups (GROUPS_ID, GROUPS_NAME, GROUPS_OWNER_ID)" +
-						"VALUES (?, ?, ?)";
+	    query = "INSERT INTO Groups (GROUPS_NAME, GROUPS_OWNER_ID)" +
+						"VALUES (?, ?)";
 	    prepared = connection.prepareStatement(query);	
-	    prepared.setInt(1, 0);
-	    prepared.setString(2, txtCreateNewGroup.getText());
-	    prepared.setInt(3, roommate.getID());
+	    prepared.setString(1, txtCreateNewGroup.getText());
+	    prepared.setInt(2, roommate.getID());
 	    prepared.execute();
+	    
 
 	    return true;
 	}catch(SQLException ex){
