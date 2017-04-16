@@ -1,3 +1,5 @@
+
+
 package gui;
 
 import java.awt.BorderLayout;
@@ -13,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -30,15 +33,22 @@ public class PayBillActivity extends JFrame implements ItemListener{
 	private JPanel Cards;
 	private Roommate roommate = Roommate.getInstance();
 	private int billID[];
-	private int rowCount=0;
+	private int rowCount,elementCount=0;
 	private int selectedBill;
+	private int groupID;
 	private JComboBox cbBillList;
 	private String billTitle[];
 	private String billDate[];
 	private float billAmount[];
+	private Object[] groupIDArray;
+	private Object[] BillIDArray;
+	private int groupIntIdArray[];
+	private int BillIntIdArray[];
 	private JLabel lblBillName,lblTotalBillAmount,lblDate,lblDisplayBillName,lblDisplayTotalBillAmount,lblDisplayDate;
 	private JPanel PayBill;
 	private Button btnPayment;
+	ArrayList groupList=new ArrayList();
+	ArrayList billList=new ArrayList();
 	
 	public PayBillActivity(JPanel newCards, CardLayout newLayout){
 		Cards = newCards;
@@ -96,40 +106,93 @@ public void startActivity(){
 		Connection connection = DriverManager.getConnection(conn);
 		Connection connection2 = DriverManager.getConnection(conn);
 		Connection connection3 = DriverManager.getConnection(conn);
-		String query="SELECT * FROM Bills WHERE BILL_OWNER_ID = ?";
+		String query="SELECT * FROM Bills";
 		 prepared = connection.prepareStatement(query);
-		 prepared.setInt(1, roommate.getGID());
+		 //prepared.setInt(1, roommate.getGID());
 	     ResultSet rs=prepared.executeQuery();
 	     
 		PreparedStatement prepared2 = null;
 		 prepared2 = connection2.prepareStatement(query);
-		 prepared2.setInt(1, roommate.getGID());
+		// prepared2.setInt(1, roommate.getGID());
 	     ResultSet rsc=prepared2.executeQuery();
+			String query5 = "SELECT * FROM Users WHERE USER_GROUP_ID=?";
+			PreparedStatement prepared5 = null;
+			Connection connection5 = DriverManager.getConnection(conn);
+			prepared5 = connection5.prepareStatement(query5);
+	    	 prepared5.setInt(1, roommate.getGID());
+				ResultSet rsgetGroup=prepared5.executeQuery();
+				while(rsgetGroup.next())
+				{
+					//System.out.println(rsgetGroup.getInt("USER_ID"));
+					groupList.add(rsgetGroup.getInt("USER_ID"));
+					elementCount++;
+				}
+				groupIDArray=new Object[elementCount];
+				groupIDArray=groupList.toArray();
+				groupIntIdArray=new int[elementCount];
+				for(int i=0;i<elementCount;i++)
+		    	 {
+					
+					groupIntIdArray[i]=(int)groupIDArray[i];
+					
+		    		 
+		    	 }
 	     while(rsc.next()) {
-	    	 rowCount++;
+	    	 for(int i=0;i<elementCount;i++)
+	    	 {
+	    		 if(rsc.getInt("BILL_OWNER_ID")==groupIntIdArray[i])
+	    		 {
+	    			 billList.add(rsc.getInt("BILL_ID"));
+	    			 rowCount++;
+	    		 }
+	    	 }
+	    	 
 	    	}
 	     connection2.close();
+			BillIDArray=new Object[elementCount];
+			BillIDArray=billList.toArray();
+			BillIntIdArray=new int[elementCount];
+			for(int i=0;i<rowCount;i++)
+	    	 {
+
+				BillIntIdArray[i]=(int)BillIDArray[i];
+	    	 }
 	     billID=new int[rowCount];
 	     billTitle=new String[rowCount];
 	     billDate=new String[rowCount];
 	     billAmount=new float[rowCount];
 	     int count=0;
 		while(rs.next())
-	   {   
+	   {   if(rowCount>count)
+	   {
+			if(BillIntIdArray[count]==rs.getInt("BILL_ID"))
+			{
 			billID[count]=rs.getInt("BILL_ID");
 			billTitle[count]=rs.getString("BILL_NAME");
 			billDate[count]=rs.getString("BILL_DUE_DATE");
 			billAmount[count]=rs.getFloat("BILL_AMOUNT");
 			count++;
+			}
+	   }
+	   else{
+		   break;
+	   }
 	   }
 		connection.close();
 		
 		cbBillList = new JComboBox(billTitle);
 		cbBillList.setBounds(10, 300, 233, 26);
 		PayBill.add(cbBillList);
+		try
+		{
 		cbBillList.setSelectedIndex(0);
-		cbBillList.addItemListener(this);
+		}
+		catch(Exception e1)
+		{
+			JOptionPane.showMessageDialog(null, "You have no active bills!");
+		}
 		
+		cbBillList.addItemListener(this);
 	    lblDisplayBillName.setText(billTitle[0]);
 	    lblDisplayTotalBillAmount.setText(Float.toString(billAmount[0]));
 	    lblDisplayDate.setText(billDate[0]);
@@ -150,16 +213,16 @@ public void startActivity(){
 						
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Your bill unable to be payed at this time.");
+						//e1.printStackTrace();
 					}
 				
 				}
 			});
 
 } catch (SQLException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
+	JOptionPane.showMessageDialog(null, "You have no active bills!");
+	//e.printStackTrace();
 
 }
 		
