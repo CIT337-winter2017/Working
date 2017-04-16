@@ -33,66 +33,66 @@ import javax.swing.SwingConstants;
 
 public class BillActivity extends JFrame {
 	
-	private JPanel Cards;
-	private JPanel Home;
-	private CardLayout layout;
+	private JPanel Cards;//Nicole
+	private JPanel Home;//Nicole
+	private CardLayout layout;//Nicole
 	private BillManager billManager = null;
 	
-	private JTextField txtBillname;
-	private JTextField txtTotalbillamount;
+	private JTextField txtBillname;//Nicole
+	private JTextField txtTotalbillamount;//Nicole
 	//private JTextField txtDate;
-	private JDateChooser dateChooser;
+	private JDateChooser dateChooser;//Nicole
 	private SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");  //Nick
 	private String formatted; //Nick
 	
 public BillActivity(JPanel newCards, CardLayout newLayout){
 		
-		Cards = newCards;
-		layout = newLayout;
+		Cards = newCards;//Nicole
+		layout = newLayout;//Nicole
 		billManager = BillManager.getInstance();
 		
 	}
 	
 	public void startActivity(){
 		
-		JPanel AddBill = new JPanel();
-		Cards.add(AddBill, "addBill");
-		AddBill.setLayout(null);
+		JPanel AddBill = new JPanel();//Nicole
+		Cards.add(AddBill, "addBill");//Nicole
+		AddBill.setLayout(null);//Nicole
 		
-		JLabel lblBillName = new JLabel("Bill Name:");
-		lblBillName.setBounds(21, 21, 112, 26);
-		AddBill.add(lblBillName);
+		JLabel lblBillName = new JLabel("Bill Name:");//Nicole
+		lblBillName.setBounds(21, 21, 112, 26);//Nicole
+		AddBill.add(lblBillName);//Nicole
 		
-		JLabel lblTotalBillAmount = new JLabel("Total Bill Amount:");
-		lblTotalBillAmount.setBounds(21, 64, 176, 26);
-		AddBill.add(lblTotalBillAmount);
+		JLabel lblTotalBillAmount = new JLabel("Total Bill Amount:");//Nicole
+		lblTotalBillAmount.setBounds(21, 64, 176, 26);//Nicole
+		AddBill.add(lblTotalBillAmount);//Nicole
 		
-		JLabel lblDate = new JLabel("Date:");
-		lblDate.setBounds(21, 111, 233, 26);
-		AddBill.add(lblDate);
+		JLabel lblDate = new JLabel("Date:");//Nicole
+		lblDate.setBounds(21, 111, 233, 26);//Nicole
+		AddBill.add(lblDate);//Nicole
 		
-		JLabel lblSplit = new JLabel("Split Percent:");
-		lblSplit.setBounds(21, 164, 233, 26);
-		AddBill.add(lblSplit);
+		JLabel lblSplit = new JLabel("Split Percent:");//Nicole
+		lblSplit.setBounds(21, 164, 233, 26);//Nicole
+		AddBill.add(lblSplit);//Nicole
 		
-		JLabel lblPercent = new JLabel("50%");
-		lblPercent.setBounds(294, 164, 233, 26);
-		AddBill.add(lblPercent);
+		JLabel lblPercent = new JLabel("50%");//Nicole
+		lblPercent.setBounds(294, 164, 233, 26);//Nicole
+		AddBill.add(lblPercent);//Nicole
 		
 		//date selection
-		dateChooser = new JDateChooser();
-		dateChooser.setBounds(126, 108, 186, 32);
-		AddBill.add(dateChooser);
+		dateChooser = new JDateChooser();//Nicole
+		dateChooser.setBounds(126, 108, 186, 32);//Nicole
+		AddBill.add(dateChooser);//Nicole
 		
-		txtBillname = new JTextField();
-		txtBillname.setBounds(126, 18, 186, 32);
-		AddBill.add(txtBillname);
-		txtBillname.setColumns(10);
+		txtBillname = new JTextField();//Nicole
+		txtBillname.setBounds(126, 18, 186, 32);//Nicole
+		AddBill.add(txtBillname);//Nicole
+		txtBillname.setColumns(10);//Nicole
 		
-		txtTotalbillamount = new JTextField();
-		txtTotalbillamount.setBounds(126, 61, 186, 32);
-		AddBill.add(txtTotalbillamount);
-		txtTotalbillamount.setColumns(10);
+		txtTotalbillamount = new JTextField();//Nicole
+		txtTotalbillamount.setBounds(126, 61, 186, 32);//Nicole
+		AddBill.add(txtTotalbillamount);//Nicole
+		txtTotalbillamount.setColumns(10);//Nicole
 		
 		 ChangeListener changeListener = new ChangeListener() {
 		      public void stateChanged(ChangeEvent changeEvent) {
@@ -115,14 +115,9 @@ public BillActivity(JPanel newCards, CardLayout newLayout){
 		AddBill.add(percentAdjust);
 	
 		
-		//txtDate = new JTextField();
-		//txtDate.setBounds(126, 108, 186, 32);
-		//AddBill.add(txtDate);
-		//txtDate.setColumns(10);
-		
-		JButton btnAddBill = new JButton("Add Bill");
-		btnAddBill.setBounds(181, 230, 141, 35);
-		AddBill.add(btnAddBill);
+		JButton btnAddBill = new JButton("Add Bill");//Nicole
+		btnAddBill.setBounds(181, 230, 141, 35);//Nicole
+		AddBill.add(btnAddBill);//Nicole
 		
 		btnAddBill.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
