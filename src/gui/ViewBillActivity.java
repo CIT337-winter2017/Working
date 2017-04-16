@@ -36,6 +36,7 @@ public class ViewBillActivity {
 	private float billAmount;
 	private int billManagerID;
 	private Roommate roommate = Roommate.getInstance();
+	
 	public ViewBillActivity(JPanel newCards, CardLayout newLayout){
 		Cards = newCards;
 		layout = newLayout;
@@ -53,7 +54,7 @@ public void startActivity(){
 	String[] ColumNames={"Bill Name","Bill Due Date","Bill Amount"};
 	DefaultTableModel model = new DefaultTableModel(ColumNames,0);
 
-	int count=-1;
+	int intID=1;
     
 	
 	
@@ -65,12 +66,6 @@ public void startActivity(){
 try {
 	String query="SELECT * FROM Bills WHERE BILL_OWNER_ID = ?";
 	Connection connection = DriverManager.getConnection(conn);
-	
-	Connection connection2 = DriverManager.getConnection(conn);
-	PreparedStatement prepared2 = null;
-	 prepared2 = connection2.prepareStatement(query);
-	 prepared2.setInt(1, roommate.getGID());
-     ResultSet rsc=prepared2.executeQuery();
 	//Statement stmt = connection.createStatement();
 	
    
@@ -80,14 +75,12 @@ try {
     
     
 	 prepared = connection.prepareStatement(query);
-	 prepared.setInt(1, roommate.getGID());
+	 prepared.setInt(1, roommate.getID());
      ResultSet rs=prepared.executeQuery();
-
     
     
-     while(rsc.next()) {
-    	     count++;
-    	}
+    
+    
 		while(rs.next())
 	   {
 
