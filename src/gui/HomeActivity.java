@@ -23,18 +23,18 @@ import javax.swing.SwingConstants;
 public class HomeActivity extends JFrame {
 	
 	
-	private JPanel Cards;
-	private CardLayout layout;
-	private JPanel Home;
-	private JLabel lblBillsplit;
-	private JButton btnCalendar;
-	private JButton btnAddBill;
-	private JButton btnView;
+	private JPanel Cards;//Nicole
+	private CardLayout layout;//Nicole
+	private JPanel Home;//Nicole
+	private JLabel lblBillsplit;//Nicole
+	//private JButton btnCalendar;
+	private JButton btnAddBill;//Nicole
+	private JButton btnView;//Nicole
 	
-	private JButton btnSettings;
-	private JMenuBar menuBar;
-	private JMenuItem mntmHome;
-	private JMenuItem mntmSignOut;
+	private JButton btnSettings;//Nicole
+	private JMenuBar menuBar;//Nicole
+	private JMenuItem mntmHome;//Nicole
+	private JMenuItem mntmSignOut;//Nicole
 	private JMenuItem mntmUsername;	
 	private boolean created = false;
 	
@@ -67,39 +67,39 @@ public class HomeActivity extends JFrame {
 		}
 	
 		
-		Home = new JPanel();
-		Cards.add(Home, "home");
-		Home.setLayout(null);
+		Home = new JPanel();//Nicole
+		Cards.add(Home, "home");//Nicole
+		Home.setLayout(null);//Nicole
 		
-		mntmHome = new JMenuItem("Home"); 
-		menuBar.add(mntmHome);
-		mntmSignOut = new JMenuItem("Sign Out");
-		menuBar.add(mntmSignOut);
+		mntmHome = new JMenuItem("Home"); //Nicole
+		menuBar.add(mntmHome);//Nicole
+		mntmSignOut = new JMenuItem("Sign Out");//Nicole
+		menuBar.add(mntmSignOut);//Nicole
 		mntmUsername = new JMenuItem("" + username);
 		menuBar.add(mntmUsername);
 		
 		
-		lblBillsplit = new JLabel("BillSplit");
+		lblBillsplit = new JLabel("BillSplit");//Nicole
 		lblBillsplit.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBillsplit.setBounds(0, 0, 528, 61);
-		lblBillsplit.setFont(new Font("Tahoma", Font.BOLD, 50));
-		Home.add(lblBillsplit);
+		lblBillsplit.setBounds(0, 0, 528, 61);//Nicole
+		lblBillsplit.setFont(new Font("Tahoma", Font.BOLD, 50));//Nicole
+		Home.add(lblBillsplit);//Nicole
 		
-		btnCalendar = new JButton("Calendar");
-		btnCalendar.setBounds(191, 69, 141, 35);
-		Home.add(btnCalendar);
+		//btnCalendar = new JButton("Calendar");
+		//btnCalendar.setBounds(191, 69, 141, 35);
+		//Home.add(btnCalendar);
 		
-		btnAddBill = new JButton("Add Bill");
-		btnAddBill.setBounds(191, 112, 141, 35);
-		Home.add(btnAddBill);
+		btnAddBill = new JButton("Add Bill");//Nicole
+		btnAddBill.setBounds(191, 112, 141, 35);//Nicole
+		Home.add(btnAddBill);//Nicole
 		
 		btnView = new JButton("View Bills");
 		btnView.setBounds(191, 155, 141, 35);
 		Home.add(btnView);
 		
-		btnSettings = new JButton("Settings");
-		btnSettings.setBounds(191, 198, 141, 35);
-		Home.add(btnSettings);
+		btnSettings = new JButton("Settings");//Nicole
+		btnSettings.setBounds(191, 198, 141, 35);//Nicole
+		Home.add(btnSettings);//Nicole
 		
 		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -110,14 +110,14 @@ public class HomeActivity extends JFrame {
 			}
 		});
 		
-		btnCalendar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//btnCalendar.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
 			
-				CalendarActivity calendar = new CalendarActivity(Cards, layout);
-				calendar.startActivity();
+				//CalendarActivity calendar = new CalendarActivity(Cards, layout);
+				//calendar.startActivity();
 			
-			}
-		});
+			//}
+		//});
 		btnAddBill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
