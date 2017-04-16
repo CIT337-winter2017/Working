@@ -28,10 +28,10 @@ import javax.swing.SwingConstants;
 
 public class GroupActivity extends JFrame{
 	
-	private CardLayout layout;
-	private JPanel Cards;
-	private JTextField txtCreateNewGroup;
-	private JTextField txtEnterGroupName;
+	private CardLayout layout;//Nicole
+	private JPanel Cards;//Nicole
+	private JTextField txtCreateNewGroup;//Nicole
+	private JTextField txtEnterGroupName;//Nicole
 	private JLabel lblGroupName;  						// Created
 	private Roommate roommate = Roommate.getInstance();	// by
 	private Group group = Group.getInstance();			// Nick
@@ -39,33 +39,33 @@ public class GroupActivity extends JFrame{
 	
 public GroupActivity(JPanel newCards, CardLayout newLayout){
 		
-		Cards = newCards;
-		layout = newLayout;
+		Cards = newCards;//Nicole
+		layout = newLayout;//Nicole
 		
 	}
 	
 	public void startActivity(){
 	
 		
-	  	JPanel Group = new JPanel();
-		Cards.add(Group, "group");
-		Group.setLayout(null);
+	  	JPanel Group = new JPanel();//Nicole
+		Cards.add(Group, "group");//Nicole
+		Group.setLayout(null);//Nicole
 		
-		txtEnterGroupName = new JTextField();
-		txtEnterGroupName.setText("Enter Group Name");
-		txtEnterGroupName.setBounds(21, 124, 186, 32);
-		Group.add(txtEnterGroupName);
-		txtEnterGroupName.setColumns(10);
+		txtEnterGroupName = new JTextField();//Nicole
+		txtEnterGroupName.setText("Enter Group Name");//Nicole
+		txtEnterGroupName.setBounds(21, 124, 186, 32);//Nicole
+		Group.add(txtEnterGroupName);//Nicole
+		txtEnterGroupName.setColumns(10);//Nicole
 		
-		JButton btnJoinGroup = new JButton("Join Group");
-		btnJoinGroup.setBounds(228, 123, 141, 35);
-		Group.add(btnJoinGroup);
+		JButton btnJoinGroup = new JButton("Join Group");//Nicole
+		btnJoinGroup.setBounds(228, 123, 141, 35);//Nicole
+		Group.add(btnJoinGroup);//Nicole
 		
-		txtCreateNewGroup = new JTextField();
-		txtCreateNewGroup.setText("Create New Group");
-		txtCreateNewGroup.setBounds(21, 54, 186, 32);
-		Group.add(txtCreateNewGroup);
-		txtCreateNewGroup.setColumns(10);
+		txtCreateNewGroup = new JTextField();//Nicole
+		txtCreateNewGroup.setText("Create New Group");//Nicole
+		txtCreateNewGroup.setBounds(21, 54, 186, 32);//Nicole
+		Group.add(txtCreateNewGroup);//Nicole
+		txtCreateNewGroup.setColumns(10);//Nicole
 		
 		JLabel label1 = new JLabel("Current Group:", SwingConstants.CENTER);	// Start Nick
 		label1.setBounds(21,194,186,16);										
@@ -76,15 +76,15 @@ public GroupActivity(JPanel newCards, CardLayout newLayout){
 		lblGroupName.setBounds(21, 210, 186, 16);
 		Group.add(lblGroupName);												// End Nick
 		
-		JButton btnCreateGroup = new JButton("Create Group");
-		btnCreateGroup.setBounds(228, 53, 167, 35);
-		Group.add(btnCreateGroup);
+		JButton btnCreateGroup = new JButton("Create Group");//Nicole
+		btnCreateGroup.setBounds(228, 53, 167, 35);//Nicole
+		Group.add(btnCreateGroup);//Nicole
 		
-		JButton btnLeaveGroup = new JButton("Leave Group");
-		btnLeaveGroup.setBounds(228, 193, 141, 35);
-		Group.add(btnLeaveGroup);
+		JButton btnLeaveGroup = new JButton("Leave Group");//Nick
+		btnLeaveGroup.setBounds(228, 193, 141, 35);	//Nick
+		Group.add(btnLeaveGroup);			//Nick
 		
-		layout.show(Cards, "group");
+		layout.show(Cards, "group");//Nicole
 		
 		btnCreateGroup.addActionListener(new ActionListener() {					//Everything below was created by Nick
 			public void actionPerformed(ActionEvent e) {
