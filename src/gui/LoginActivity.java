@@ -30,14 +30,14 @@ import java.sql.*;
 public class LoginActivity extends JFrame{
 
 	
-	private CardLayout layout;
-	private JPanel Cards;
-	private JPanel Login;
-	private JTextField txtUsername;
-	private JPasswordField pwdPassword;
-	private JLabel lblUsername;
-	private JLabel lblPassword;
-	private JMenuBar menuBar;
+	private CardLayout layout;//Nicole
+	private JPanel Cards;//Nicole
+	private JPanel Login;//Nicole
+	private JTextField txtUsername;//Nicole
+	private JPasswordField pwdPassword;//Nicole
+	private JLabel lblUsername;//Nicole
+	private JLabel lblPassword;//Nicole
+	private JMenuBar menuBar;//Nicole
 	private JMenuItem mntmUsername;
 	private Roommate roommate = Roommate.getInstance();
 	private String username;
@@ -52,38 +52,38 @@ public class LoginActivity extends JFrame{
 	
 	public void startActivity(){
 		
-		Login = new JPanel();
-		Cards.add(Login, "login");
-		Login.setLayout(null);
+		Login = new JPanel();//Nicole
+		Cards.add(Login, "login");//Nicole
+		Login.setLayout(null);//Nicole
 		
 		//username textbox
-		txtUsername = new JTextField();
-		txtUsername.setBounds(157, 53, 186, 32);
-		Login.add(txtUsername);
-		txtUsername.setColumns(10);
+		txtUsername = new JTextField();//Nicole
+		txtUsername.setBounds(157, 53, 186, 32);//Nicole
+		Login.add(txtUsername);//Nicole
+		txtUsername.setColumns(10);//Nicole
 		//username label
-		lblUsername = new JLabel();
-		lblUsername.setBounds(40,53,176,26);
-		lblUsername.setText("Enter Username:");
-		Login.add(lblUsername);
+		lblUsername = new JLabel();//Nicole
+		lblUsername.setBounds(40,53,176,26);//Nicole
+		lblUsername.setText("Enter Username:");//Nicole
+		Login.add(lblUsername);//Nicole
 		
 		//password textbox
-		pwdPassword = new JPasswordField();
-		pwdPassword.setBounds(157, 96, 186, 32);
-		Login.add(pwdPassword);
+		pwdPassword = new JPasswordField();//Nicole
+		pwdPassword.setBounds(157, 96, 186, 32);//Nicole
+		Login.add(pwdPassword);//Nicole
 		//password label
-		lblPassword = new JLabel();
-		lblPassword.setBounds(40,96,176,26);
-		lblPassword.setText("Enter Password:");
-		Login.add(lblPassword);
+		lblPassword = new JLabel();//Nicole
+		lblPassword.setBounds(40,96,176,26);//Nicole
+		lblPassword.setText("Enter Password:");//Nicole
+		Login.add(lblPassword);//Nicole
 		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(157, 139, 186, 35);
-		Login.add(btnLogin);
+		JButton btnLogin = new JButton("Login");//Nicole
+		btnLogin.setBounds(157, 139, 186, 35);//Nicole
+		Login.add(btnLogin);//Nicole
 		
-		JButton btnRegister = new JButton("Register");
-		btnRegister.setBounds(157, 182, 186, 35);
-		Login.add(btnRegister);
+		JButton btnRegister = new JButton("Register");//Nicole
+		btnRegister.setBounds(157, 182, 186, 35);//Nicole
+		Login.add(btnRegister);//Nicole
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
