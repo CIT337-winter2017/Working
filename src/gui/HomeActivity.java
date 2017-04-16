@@ -30,7 +30,7 @@ public class HomeActivity extends JFrame {
 	//private JButton btnCalendar;
 	private JButton btnAddBill;//Nicole
 	private JButton btnView;//Nicole
-	
+	private JButton btnPay;//Nicole
 	private JButton btnSettings;//Nicole
 	private JMenuBar menuBar;//Nicole
 	private JMenuItem mntmHome;//Nicole
@@ -89,6 +89,10 @@ public class HomeActivity extends JFrame {
 		//btnCalendar.setBounds(191, 69, 141, 35);
 		//Home.add(btnCalendar);
 		
+		btnPay = new JButton("Pay Bill"); //Nicole
+		btnPay.setBounds(191,69,141,35); //Nicole
+		Home.add(btnPay);//Nicole
+		
 		btnAddBill = new JButton("Add Bill");//Nicole
 		btnAddBill.setBounds(191, 112, 141, 35);//Nicole
 		Home.add(btnAddBill);//Nicole
@@ -118,6 +122,15 @@ public class HomeActivity extends JFrame {
 			
 			//}
 		//});
+		
+		btnPay.addActionListener(new ActionListener() {//Nicole
+			public void actionPerformed(ActionEvent e) {//Nicole
+			
+				PayBillActivity pay = new PayBillActivity(Cards, layout);//Nicole
+				pay.startActivity();//Nicole
+			
+			}
+		});
 		btnAddBill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
