@@ -18,24 +18,24 @@ import javax.swing.SwingConstants;
 public class SettingsActivity extends JFrame{
 	
 	
-	private JPanel Cards;
-	private CardLayout layout;
+	private JPanel Cards;//Nicole
+	private CardLayout layout;//Nicole
 	
 public SettingsActivity(JPanel newCards, CardLayout newLayout){
 		
-		Cards = newCards;
-		layout = newLayout;
+		Cards = newCards;//Nicole
+		layout = newLayout;//Nicole
 	}
 	
 	public void startActivity(){
 		
-		JPanel Settings = new JPanel();
-		Cards.add(Settings, "settings");
-		Settings.setLayout(null);
+		JPanel Settings = new JPanel();//Nicole
+		Cards.add(Settings, "settings");//Nicole
+		Settings.setLayout(null);//Nicole
 		
-		JButton btnManageGroups = new JButton("Manage Group(s)");
-		btnManageGroups.setBounds(160, 32, 195, 35);
-		Settings.add(btnManageGroups);
+		JButton btnManageGroups = new JButton("Manage Group(s)");//Nicole
+		btnManageGroups.setBounds(160, 32, 195, 35);//Nicole
+		Settings.add(btnManageGroups);//Nicole
 		
 		btnManageGroups.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -46,11 +46,11 @@ public SettingsActivity(JPanel newCards, CardLayout newLayout){
 			}
 		});
 		
-		JButton btnUpdateInfo = new JButton("Update Info");
-		btnUpdateInfo.setBounds(160, 93, 195, 35);
-		Settings.add(btnUpdateInfo);
+		JButton btnUpdateInfo = new JButton("Update Info");//Nicole
+		btnUpdateInfo.setBounds(160, 93, 195, 35);//Nicole
+		Settings.add(btnUpdateInfo);//Nicole
 		
-		layout.show(Cards, "settings");
+		layout.show(Cards, "settings");//Nicole
 	}
 }
 
