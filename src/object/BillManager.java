@@ -20,11 +20,11 @@ public class BillManager extends Roommate{
 			return sharedInstance;
 		}	
 					
-		public Bill addBill(String billTitle, String billAmount, String billDate){
+		public Bill addBill(String billTitle, String billAmount, String billDate, int id){
 				
 			
 			Bill bill = new Bill();
-			bill.createBill(billTitle, Float.valueOf(billAmount), Date.valueOf(billDate), managerID);
+			bill.createBill(billTitle, Float.valueOf(billAmount), Date.valueOf(billDate), id);
 			
 			try{
 				bill.saveBill();
